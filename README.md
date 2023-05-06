@@ -24,6 +24,13 @@ go run client/main.go
 
 ### Generate gRPC code
 
+Install the gRPC code generator(protoc):
+
+```bash
+# macOS
+brew install protobuf
+```
+
 To generate the gRPC code, run the following command:
 
 ```bash
