@@ -6,12 +6,13 @@ import (
 	"log"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 
 	pb "github.com/zawakin/simple-grpc-stream/api"
 )
 
 func main() {
-	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+	conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("failed to connect: %v", err)
 	}
@@ -31,7 +32,9 @@ func main() {
 				log.Fatalf("failed to send message: %v", err)
 			}
 		}
-		stream.CloseSend()
+		if err := stream.CloseSend(); err != nil {
+			log.Fatalf("failed to close send: %v", err)
+		}
 	}()
 
 	for {
