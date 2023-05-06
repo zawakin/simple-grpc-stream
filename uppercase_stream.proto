@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package api;
+
+service UpperCaseService {
+  rpc ToUpperCase (stream InputMessage) returns (stream OutputMessage) {}
+}
+
+message InputMessage {
+  string text = 1;
+}
+
+message OutputMessage {
+  string text = 1;
+}
