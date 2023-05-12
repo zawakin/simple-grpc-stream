@@ -1,8 +1,26 @@
-# Simple gRPC stream Example
+# Simple Chat gRPC Streaming Example
 
 ## Description
 
 This is a simple chat gRPC stream example. It is a simple client/server application that sends a stream of messages from the client to the server and the server responds with a stream of messages back to the client.
+
+## Files
+
+```
+.
+├── README.md
+├── api
+│   └── chat_service.pb.go
+├── chat_service.proto
+├── client
+│   └── main.go
+├── go.mod
+├── go.sum
+└── server
+    └── main.go
+
+3 directories, 7 files
+```
 
 ## Usage
 
